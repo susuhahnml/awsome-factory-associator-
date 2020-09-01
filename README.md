@@ -424,9 +424,19 @@ factory.create("salesmanWithStores"); //Infinite loop
 Since the factory *salesmanWithStores* creates a store using the factory *storeWithSalemsman*, which creates a sale using this same factory *salesmanWithStores*, each creation will create one of the other. Hence, this function will never return.
 
 ### Extra configurations
-Configuration file ``config/factory.js``
 #### Loading factories
 #### Unique
-When using the same factory more than one time the models creation might **fail** due to uniqueness issues. This is why we advise you to use **faker** when defining unique attributes. Even by using random data, it can fail by chance. To avoid such errors the creation of a model can be **retried** in case of uniqueness error. The number of times the creation will be retried can be configured in this file, adding ``{creationRetries: times }``, where ``times`` is a number. The default value is **1**.
+When using the same factory more than one time the models creation might **fail** due to uniqueness issues. This is why we advise you to use **faker** when defining unique attributes. Even by using random data, it can fail by chance. To avoid such errors the creation of a model can be **retried** in case of uniqueness error.
+
+The **number** of times the creation will be retried can be configured in `config/local.js`:
+
+```js
+factory: {
+  creationRetries: 3
+}
+```
+
+The default value is **1**.
+
 #### Populated Object
 The object returned after the creation will be populated, in order to refer to its values and associations during tests. To set the depth of this population use the parameter ``{populationDepth: depth }``, where ``depth`` indicates how many times the nested models associations will be populated. The default value is **3**. Note that when having **circular references**, the returned object will be highly populated so we advise you not to use big numbers in this configuration.
