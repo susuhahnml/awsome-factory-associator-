@@ -3,6 +3,7 @@ module.exports = {
       "es6": true,
       "node": true
   },
+  parser: 'babel-eslint',
   "extends": "eslint:recommended",
   "parserOptions": {
       "sourceType": "module"
@@ -43,6 +44,7 @@ module.exports = {
         "error",
       ],
       "no-multiple-empty-lines": [
+        "error",
         {"max":2},
       ],
       "no-multi-str": [
@@ -106,16 +108,9 @@ module.exports = {
         "error",
         "last",
       ],
-      "linebreak-style": [
-        "error",
-        "unix",
-      ],
       "eol-last": [
         "error",
         "always",
-      ],
-      "no-multiple-empty-lines": [
-        "error",
       ],
       "no-nested-ternary": [
         "error",
@@ -147,6 +142,10 @@ module.exports = {
       ],
       "arrow-spacing": [
         "error"
+      ],
+      "arrow-parens": [
+        "error",
+        "always"
       ],
       "comma-spacing": [
         "error"
